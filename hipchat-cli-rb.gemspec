@@ -9,7 +9,8 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/jhubert/hipchat-cli-rb"
   s.summary = "A Ruby Command Line interface for the HipChat API"
   s.description = "A Ruby Command Line interface for the HipChat API"
-  s.files = Dir.glob("{bin,lib,doc}/**/*") + %w(README.md)
+  s.files = Dir.glob("{bin,lib,doc}/**/*") + %w(README.md LICENSE)
+  s.license = 'MIT'
   s.require_path = 'lib'
   s.executables = ["hipchat_notify"]
   s.add_dependency('hipchat')
