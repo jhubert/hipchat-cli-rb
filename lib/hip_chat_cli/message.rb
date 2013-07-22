@@ -18,6 +18,9 @@ module HipChatCli
     end
 
     def deliver(message)
+
+      raise OptionParser::MissingArgument, "message is required" if message.nil? || message == ''
+
       @client[@room].send(@username, message, {
           :notify => @notify,
           :message_format => @format,
