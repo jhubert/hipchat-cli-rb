@@ -13,7 +13,14 @@ module HipChatCli
     end
 
     def parse_options(argv)
-      options = { color: "yellow", username: "API Client", notify: false }
+      options = {
+        color: "yellow",
+        notify: false,
+        username: ENV['HIPCHAT_API_USERNAME'] || "API Client",
+        room: ENV['HIPCHAT_API_ROOM'] || nil,
+        token: ENV['HIPCHAT_API_TOKEN'] || nil
+      }
+
       parser = OptionParser.new
       parser.banner = "Usage: hipchat_notify [OPTIONS] message"
       parser.separator  ""
@@ -51,7 +58,7 @@ module HipChatCli
       @help = parser.to_s
 
       message = parser.parse(argv).join(' ')
-      message ||= STDIN.read
+      message = STDIN.read if message.nil? || message == ""
 
       [options, message]
     end
