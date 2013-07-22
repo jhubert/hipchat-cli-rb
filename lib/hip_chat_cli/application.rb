@@ -35,8 +35,8 @@ module HipChatCli
         options[:format] = format
       end
 
-      parser.on("-c","--color COLOR",'message color: "red", "yellow", "green", "purple" or "random" (default "yellow")') do |color|
-        options[:color] = color if %w(red yellow green purple random).include?(color.downcase)
+      parser.on("-c","--color COLOR",'message color: "red", "yellow", "green", "purple", "gray" or "random" (default "yellow")') do |color|
+        options[:color] = color if %w(red yellow green purple gray random).include?(color.downcase)
       end
 
       parser.on("-n","--notify","notify the users in the room about the message") do
