@@ -2,7 +2,7 @@
 
 Currently provides a simple, easy to use command line tool for sending a message to a HipChat room. Similar to https://github.com/hipchat/hipchat-cli, but about a billion times more Ruby.
 
-### Useage
+### Usage
 
 Install the gem:
 
@@ -15,6 +15,16 @@ Use the bin:
 or 
 
     echo "Hello World" | hipchat_notify --room [Room Name] --token [API TOKEN]
+
+### Options
+
+    -t, --token API_TOKEN            [required] The API token for HipChat
+    -r, --room ROOM                  [required] The room ID to receive the message
+    -u, --user USERNAME              The name of the sender. Default: API Client
+    -f, --format FORMAT              The format of the message. Default: html
+    -c, --color COLOR                message color: "red", "yellow", "green", "purple" or "random" (default "yellow")
+    -n, --notify                     notify the users in the room about the message
+    -h, --help                       Show the options and sample usage
 
 
 ### Contributing
