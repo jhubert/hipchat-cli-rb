@@ -2,11 +2,13 @@
 
 Currently provides a simple, easy to use command line tool for sending a message to a HipChat room. Similar to https://github.com/hipchat/hipchat-cli, but about a billion times more Ruby.
 
-### Usage
+### Installation
 
 Install the gem:
 
     gem install hipchat-cli
+
+### Sending A Message
 
 Use the bin:
 
@@ -16,7 +18,7 @@ or
 
     echo "Hello World" | hipchat_notify --room [Room Name] --token [API TOKEN]
 
-### Options
+#### Options
 
     -t, --token API_TOKEN            [required] The API token for HipChat
     -r, --room ROOM                  [required] The room ID to receive the message
@@ -26,6 +28,18 @@ or
     -n, --notify                     notify the users in the room about the message
     -h, --help                       Show the options and sample usage
 
+### More CLI bins please!
+
+It would be awesome to have more commands added to this tool, either as a command or as a standalone bin. If you want to add one, please follow the contribution guidelines below.
+
+Some ideas:
+
+* create a room
+* update a topic
+* create a user
+* delete a user
+
+.. pretty much anything [the HipChat API](https://www.hipchat.com/docs/api/) supports. :+1:
 
 ### Contributing
 
