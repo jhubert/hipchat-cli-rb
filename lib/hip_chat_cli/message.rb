@@ -3,6 +3,11 @@ require 'hipchat'
 module HipChatCli
   class Message
     def initialize(params)
+
+      %w(token room).each do |key|
+        raise OptionParser::MissingArgument, "#{key} is a required option" if params[key.to_sym].nil?
+      end
+
       @room     = params[:room]
       @notify   = params[:notify]   || false
       @format   = params[:format]   || 'html'

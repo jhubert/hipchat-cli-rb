@@ -7,7 +7,7 @@ begin
 rescue Errno::ENOENT => err
   abort "hip_chat_cli: #{err.message}"
 rescue OptionParser::MissingArgument => err
-  abort "hip_chat_cli: #{err.message}\n#{HipChatCli::Application.new(ARGV).help}"
+  abort "hip_chat_cli: #{err.message}\nusage: #{$0} -h for more information"
 rescue OptionParser::InvalidOption => err
-  abort "hip_chat_cli: #{err.message}\nusage: hip_chat_cli [-bns] [file ...]"
+  abort "hip_chat_cli: #{err.message}\nusage: #{$0} -h for more information"
 end

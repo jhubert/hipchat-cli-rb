@@ -1,18 +1,11 @@
 module HipChatCli
   class Application
     def initialize(argv)
-      @options = parse_options(argv)
-
-      @message = HipChatCli::Message.new(@options)
+      @options, @msg = parse_options(argv)
     end
 
     def run
-      %w(token room).each do |key|
-        raise OptionParser::MissingArgument, "#{key} is a required option" if @options[key.to_sym].nil?
-      end
-
-
-      @message.deliver(@options[:message])
+      HipChatCli::Message.new(@options).deliver(@msg)
     end
 
     def help
@@ -43,11 +36,7 @@ module HipChatCli
       end
 
       parser.on("-c","--color COLOR",'message color: "red", "yellow", "green", "purple" or "random" (default "yellow")') do |color|
-        if %w(red yellow green purple random).include?(color.downcase)
-          options[:room] = color
-        else
-          options[:room] = "yellow"
-        end
+        options[:color] = color if %w(red yellow green purple random).include?(color.downcase)
       end
 
       parser.on("-n","--notify","notify the users in the room about the message") do
@@ -55,17 +44,16 @@ module HipChatCli
       end
 
       parser.on("-h","--help","help") do
-        options[:help] = true
+        puts parser.to_s
+        exit 0
       end
 
       @help = parser.to_s
 
-      message = parser.parse(argv).first
-      options[:message] = message || STDIN.read
+      message = parser.parse(argv).join(' ')
+      message ||= STDIN.read
 
-      #message = options.delete(:message)
-
-      options
+      [options, message]
     end
   end
 end
