@@ -7,7 +7,7 @@ Currently provides a simple, easy to use command line tool for sending a message
 Install the gem:
 
     gem install hipchat-cli
-
+    
 ### Sending A Message
 
 Use the bin:
@@ -28,7 +28,15 @@ or
     -n, --notify                     notify the users in the room about the message
     -h, --help                       Show the options and sample usage
 
-### More CLI bins please!
+### Environment Variables
+
+You can use Environment Variables to set common values instead of passing them in via the command line options.
+
+* username: HIPCHAT_API_USERNAME
+* room: HIPCHAT_API_ROOM
+* token: HIPCHAT_API_TOKEN
+
+### More CLI bins!
 
 It would be awesome to have more commands added to this tool, either as a command or as a standalone bin. If you want to add one, please follow the contribution guidelines below.
 
@@ -48,6 +56,6 @@ Some ideas:
 3. Add your changes. Make sure the tests pass (if any)
 4. Submit a pull request.
 
-### License
+### Copyright
 
-See LICENSE for details
+Copyright (c) 2013 Jeremy Baker. See LICENSE for details
